@@ -1,0 +1,44 @@
+/* -------------------------
+*
+* Color Scheme
+*
+*/
+
+$primary-color: #1385e3;
+$secondary-color: #1385e3;
+$accent-color: #1385e3;
+
+$light-grey: #e2d7cf;
+$grey: #7f7771;
+$dark-grey: #33302d;
+$dark: #222222;
+
+$black: $dark;
+$white: #ffffff;
+
+/* -------------------------
+*
+* Fonts
+*
+*/
+
+$main-font: 'Colaborate', sans-serif;
+$title-font: 'Colaborate', sans-serif;
+$display-font: 'Colaborate', sans-serif;
+
+$light: 100;
+$regular: normal;
+$bold: bold;
+
+/* -------------------------
+*
+* Breakpoints
+*
+*/
+
+$max-width: 1400px;
+
+$full: $max-width;
+$narrow: 1100px;
+$tablet: 780px;
+$phone: 560px;

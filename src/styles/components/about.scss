@@ -1,0 +1,38 @@
+.about {
+	display: flex;
+	height: 100vh;
+	padding-bottom: 5rem;
+
+	.about-inner {
+		background: $light-grey;
+		padding: 2rem 1rem;
+		display: flex;
+		justify-content: center;
+		margin: auto 0;
+
+		&__img {
+			min-width: 400px;
+			width: 40%;
+			position: relative;
+
+			.gimage {
+				height: calc(100% + 5rem);
+				width: 100%;
+			}
+		}
+
+		&__content {
+			position: relative;
+			padding: 0 2rem;
+			width: 40%;
+
+			.about-title {
+				margin: 0;
+				position: relative;
+				left: -150px;
+				text-transform: uppercase;
+				letter-spacing: 0.08rem;
+			}
+		}
+	}
+}

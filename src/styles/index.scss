@@ -1,0 +1,15 @@
+@import './includes/*.scss';
+
+body {
+	color: $dark-grey;
+	font-family: $main-font;
+	font-weight: $light;
+	font-size: 18px;
+	scroll-behavior: smooth;
+
+	.main-content {
+		padding: 0 0 0 180px;
+	}
+}
+
+@import './components/*.scss';
