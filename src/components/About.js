@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-const About = () => {
+const About = ({ isMobile }) => {
 	const data = useStaticQuery(graphql`
 		query {
 			file(relativePath: { eq: "morro-about.jpg" }) {
@@ -19,14 +19,14 @@ const About = () => {
 		<section id="quienes-somos" className="about">
 			<div className="about-inner">
 				<div
-					className="about-inner__img lax"
+					className={isMobile ? 'about-inner__img' : 'about-inner__img lax'}
 					data-lax-translate-x="0 -300, 400 0 | offset=-100"
 					data-lax-opacity="0 0, 400 1"
 				>
 					<Img fluid={data.file.childImageSharp.fluid} alt="Building" className="gimage" />
 				</div>
 				<div
-					className="about-inner__content lax"
+					className={isMobile ? 'about-inner__content' : 'about-inner__content lax'}
 					data-lax-translate-y="0 200, 200 0 | offset=-50"
 					data-lax-opacity="0 0, 400 1"
 				>

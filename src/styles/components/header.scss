@@ -9,11 +9,32 @@
 	z-index: 99;
 	width: 180px;
 
+	@include tablet {
+		flex-direction: row;
+		height: 60px;
+		width: 100vw;
+	}
+
 	.logo {
 		margin: 0 auto;
 		padding: 1rem;
 		width: 100%;
 		max-width: 175px;
+
+		@include tablet {
+			order: 2;
+			height: 60px;
+			margin: 0;
+			clip-path: polygon();
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+				display: block;
+				object-position: center -42px;
+			}
+		}
 	}
 
 	.hamb-menu {
@@ -29,6 +50,11 @@
 		transition: all 0.5s;
 		position: relative;
 		z-index: 2;
+
+		@include tablet {
+			order: 1;
+			margin: auto 0.5rem;
+		}
 
 		&__bar {
 			height: 3px;
@@ -63,6 +89,13 @@
 		height: 100vh;
 		transition: all 0.7s ease-in-out;
 
+		@include tablet {
+			top: 60px;
+			left: 0;
+			height: calc(100vh - 60px);
+			width: 90%;
+		}
+
 		&.open {
 			clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
 
@@ -88,10 +121,15 @@
 					display: block;
 					font-size: 1.5rem;
 					text-transform: uppercase;
+					text-decoration: none;
 					letter-spacing: 0.08rem;
 					transition: all 0.4s;
 					display: flex;
 					align-items: center;
+
+					@include tablet {
+						font-size: 1.25rem;
+					}
 
 					&:before {
 						background: $light-grey;

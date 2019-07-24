@@ -29,7 +29,7 @@ const slides = [
 	}
 ]
 
-const Hero = () => {
+const Hero = ({ isMobile }) => {
 	const [initSlide, setInitSlide] = useState(false)
 	const [currSlide, setCurrSlide] = useState(1)
 	const [order, setNewOrder] = useState(slides.map((e, i) => i + 1))
@@ -67,7 +67,7 @@ const Hero = () => {
 		<section id="inicio" className="hero">
 			<div className="swiper">
 				<div
-					className="lax swiper-wrapper"
+					className={isMobile ? 'swiper-wrapper' : 'swiper-wrapper lax'}
 					data-lax-translate-y="0 0, vh 400"
 					data-lax-opacity="0 1, vh 0"
 				>

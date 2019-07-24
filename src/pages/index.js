@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
@@ -25,9 +26,9 @@ const IndexPage = () => {
 
 	return (
 		<Layout>
-			<Hero />
-			<About />
-			<Services />
+			<Hero isMobile={isMobile} />
+			<About isMobile={isMobile} />
+			<Services isMobile={isMobile} />
 			<Contact />
 		</Layout>
 	)

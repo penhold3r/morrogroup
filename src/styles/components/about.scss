@@ -3,6 +3,10 @@
 	height: 100vh;
 	padding-bottom: 5rem;
 
+	@include phone {
+		padding: 2rem 0 5rem;
+	}
+
 	.about-inner {
 		background: $light-grey;
 		padding: 2rem 1rem;
@@ -10,14 +14,32 @@
 		justify-content: center;
 		margin: auto 0;
 
+		@include phone {
+			flex-direction: column;
+		}
+
 		&__img {
-			min-width: 400px;
+			max-width: 400px;
 			width: 40%;
 			position: relative;
+
+			@include tablet {
+				width: 30%;
+			}
+
+			@include phone {
+				max-width: initial;
+				width: 100%;
+				top: -4rem;
+			}
 
 			.gimage {
 				height: calc(100% + 5rem);
 				width: 100%;
+
+				@include phone {
+					height: 250px;
+				}
 			}
 		}
 
@@ -26,12 +48,25 @@
 			padding: 0 2rem;
 			width: 40%;
 
+			@include tablet {
+				width: 60%;
+			}
+
+			@include phone {
+				top: -2rem;
+				width: 100%;
+			}
+
 			.about-title {
 				margin: 0;
 				position: relative;
 				left: -150px;
 				text-transform: uppercase;
 				letter-spacing: 0.08rem;
+
+				@include phone {
+					left: 0;
+				}
 			}
 		}
 	}

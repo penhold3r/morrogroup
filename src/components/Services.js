@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-const Services = () => {
+const Services = ({ isMobile }) => {
 	const {
 		allFile: { edges }
 	} = useStaticQuery(graphql`
@@ -37,7 +37,7 @@ const Services = () => {
 			<ul className="services__list">
 				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-elh)">
 					<div
-						className="service-card__img lax"
+						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
 						data-lax-saturate="0 1000, 200 100 | offset=(-vh-elh)"
 						data-lax-brightness="0 1000, 200 100 | offset=(-vh-elh)"
 					>
@@ -58,7 +58,7 @@ const Services = () => {
 				</li>
 				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-300-elh)">
 					<div
-						className="service-card__img lax"
+						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
 						data-lax-saturate="0 1000, 200 100 | offset=(-vh-300-elh)"
 						data-lax-brightness="0 1000, 200 100 | offset=(-vh-300-elh)"
 					>
@@ -79,7 +79,7 @@ const Services = () => {
 				</li>
 				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-600-elh)">
 					<div
-						className="service-card__img lax"
+						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
 						data-lax-saturate="0 1000, 200 100 | offset=(-vh-600-elh)"
 						data-lax-brightness="0 1000, 200 100 | offset=(-vh-600-elh)"
 					>

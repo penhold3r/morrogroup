@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { isMobile } from 'react-device-detect'
 
 import Header from './Header'
 
@@ -12,7 +13,8 @@ if (typeof window !== 'undefined') {
 	require('smooth-scroll')('a[href*="#"]', {
 		speed: 800,
 		speedAsDuration: true,
-		easing: 'easeInOutCubic'
+		easing: 'easeInOutCubic',
+		offset: isMobile ? 100 : 0
 	})
 }
 
