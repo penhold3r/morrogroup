@@ -36,30 +36,24 @@ const Hero = ({ isMobile }) => {
 
 	const interval = 5500
 
+	const scroll = () => {
+		const about = document.querySelector('.about')
+		about.scrollIntoView({ behavior: 'smooth' })
+	}
+
 	useEffect(() => {
-		const max = slides.length
 		let newOrder = [...order]
 
-		let curr = 1
+		let currSlide = 1
 		setInterval(() => {
-			let next
-
-			if (curr >= max) {
-				next = 1
-				curr = 1
-			} else {
-				curr++
-				next = curr
-			}
-
-			curr > 1 && setInitSlide(true)
-
 			let last = newOrder.pop()
 			newOrder.unshift(last)
-
 			setNewOrder(newOrder)
 
-			setCurrSlide(next)
+			currSlide > 1 && setInitSlide(true)
+
+			currSlide = currSlide < slides.length ? currSlide + 1 : 1
+			setCurrSlide(currSlide)
 		}, interval)
 	}, [])
 
@@ -85,12 +79,7 @@ const Hero = ({ isMobile }) => {
 									<h3>{slide.title}</h3>
 									<p>{slide.text}</p>
 								</div>
-								<div
-									className="swiper-slide__img"
-									style={{
-										visibility: initSlide ? 'visible' : 'hidden'
-									}}
-								>
+								<div className="swiper-slide__img">
 									<img src={slide.image} alt="" />
 								</div>
 							</div>
@@ -99,6 +88,7 @@ const Hero = ({ isMobile }) => {
 				</div>
 				<div className="swiper__pagination" />
 			</div>
+			<div className="arrow" onClick={scroll} />
 		</section>
 	)
 }

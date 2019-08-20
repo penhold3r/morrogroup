@@ -1,0 +1,72 @@
+.intro {
+	animation: zoomOut 0.5s ease-in-out 6s forwards;
+	background: #fff;
+	height: 100vh;
+	position: fixed;
+	width: 100vw;
+	z-index: 100;
+
+	.black {
+		animation: courtain 1.2s ease-in-out 0.2s forwards;
+		background: $black;
+		clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		opacity: 0;
+		width: 100%;
+
+		.logo {
+			animation: slideUp 1s ease-in-out 1.5s forwards;
+			display: block;
+			margin: auto auto 0;
+			opacity: 0;
+			transform: translateY(30px);
+			max-width: 250px;
+		}
+
+		.loading {
+			color: #fff;
+			animation: slideUp 1s ease-in-out 1.5s forwards;
+			margin: 0 auto auto;
+			opacity: 0;
+			transform: translateY(30px);
+		}
+	}
+}
+
+@keyframes courtain {
+	from {
+		clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+		opacity: 0;
+	}
+
+	to {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes zoomOut {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale(1.2);
+	}
+}

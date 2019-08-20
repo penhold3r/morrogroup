@@ -32,11 +32,19 @@ const About = ({ isMobile }) => {
 				>
 					<h2 className="about-title">Quienes Somos</h2>
 					<div className="about-text">
+						<p className="lead">
+							Somos una empresa familiar con más de 40 años de trayectoria, específicamente,
+							la tercera generación puesta en acción enfocada en la construcción,
+							gerenciamiento y negocios inmobiliarios. Creemos en el trabajo en equipo como
+							herramienta para superar obstáculos y general alianzas positivas.
+						</p>
+
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, obcaecati
-							reiciendis vitae quibusdam expedita sunt ut repellat excepturi exercitationem
-							magnam iusto illum! Earum, deleniti dolorem. Tempore assumenda repellendus
-							harum totam?
+							Trabajamos día a día en una gestión integral que cumpla con los plazos
+							pactados, la optimización de costos, la calidad de nuestro producto y, como
+							prioridad, generar la confianza de nuestros clientes. Nuestro trabajo es
+							innovador, moderno, de calidad y enfocado en la excelencia. A eso lo llamamos:
+							garantía Basso.
 						</p>
 					</div>
 				</div>

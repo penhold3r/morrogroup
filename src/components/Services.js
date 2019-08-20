@@ -2,6 +2,8 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import Link from './Link'
+
 const Services = ({ isMobile }) => {
 	const {
 		allFile: { edges }
@@ -25,6 +27,24 @@ const Services = ({ isMobile }) => {
 		}
 	`)
 
+	const [arqImg] = edges.filter(({ node }) => node.name === 'arquitectura')
+	const [constImg] = edges.filter(({ node }) => node.name === 'construccion')
+	const [comImg] = edges.filter(({ node }) => node.name === 'comercializacion')
+
+	const searchPlus = (
+		<svg
+			className="search-plus"
+			version="1.1"
+			xmlns="http://www.w3.org/2000/svg"
+			width="32"
+			height="32"
+			viewBox="0 0 32 32"
+		>
+			<title>ver más</title>
+			<path d="M14 13v-4h1v4h4v1h-4v4h-1v-4h-4v-1h4zM20.145 19.855c-1.501 1.335-3.479 2.145-5.645 2.145-4.694 0-8.5-3.806-8.5-8.5s3.806-8.5 8.5-8.5c4.694 0 8.5 3.806 8.5 8.5 0 2.167-0.811 4.144-2.145 5.645l0.145-0.145 6.508 6.508c0.275 0.275 0.268 0.716-0.008 0.992-0.278 0.278-0.72 0.28-0.992 0.008l-6.508-6.508 0.145-0.145zM14.5 21c4.142 0 7.5-3.358 7.5-7.5s-3.358-7.5-7.5-7.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5v0z" />
+		</svg>
+	)
+
 	return (
 		<section id="servicios" className="services">
 			<h2
@@ -34,69 +54,45 @@ const Services = ({ isMobile }) => {
 			>
 				Servicios
 			</h2>
-			<ul className="services__list">
-				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-elh)">
-					<div
-						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
-						data-lax-saturate="0 1000, 200 100 | offset=(-vh-elh)"
-						data-lax-brightness="0 1000, 200 100 | offset=(-vh-elh)"
-					>
+			<ul className="services__list lax" data-lax-opacity="0 0, 50 1 | offset=(-vh-elh)">
+				<li className="service-card">
+					<Link to="/servicios/arquitectura" className="service-card__img">
 						<Img
-							fluid={edges[0].node.childImageSharp.fluid}
-							alt="Building"
-							className="gimage lax"
+							fluid={arqImg.node.childImageSharp.fluid}
+							alt="Arquitectura"
+							className="gimage"
 						/>
-					</div>
-					<div className="service-card__content">
-						<h3 className="service-name">Service Name</h3>
-						<p className="service-description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus adipisci
-							atque molestias non quia animi recusandae voluptatibus, dolor eaque alias quam
-							itaque maiores voluptatem ea.
-						</p>
-					</div>
+						<h3 className="service-title">
+							<span>Arquitectura</span>
+							<span className="plus-cirlce">{searchPlus}</span>
+						</h3>
+					</Link>
 				</li>
-				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-300-elh)">
-					<div
-						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
-						data-lax-saturate="0 1000, 200 100 | offset=(-vh-300-elh)"
-						data-lax-brightness="0 1000, 200 100 | offset=(-vh-300-elh)"
-					>
+				<li className="service-card">
+					<Link to="/servicios/construccion" className="service-card__img">
 						<Img
-							fluid={edges[1].node.childImageSharp.fluid}
-							alt="Building"
-							className="gimage lax"
+							fluid={constImg.node.childImageSharp.fluid}
+							alt="Construción"
+							className="gimage"
 						/>
-					</div>
-					<div className="service-card__content">
-						<h3 className="service-name">Service Name</h3>
-						<p className="service-description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus adipisci
-							atque molestias non quia animi recusandae voluptatibus, dolor eaque alias quam
-							itaque maiores voluptatem ea.
-						</p>
-					</div>
+						<h3 className="service-title">
+							<span>Construción</span>
+							<span className="plus-cirlce">{searchPlus}</span>
+						</h3>
+					</Link>
 				</li>
-				<li className="service-card lax" data-lax-opacity="0 0, 200 1 | offset=(-vh-600-elh)">
-					<div
-						className={isMobile ? 'service-card__img' : 'service-card__img lax'}
-						data-lax-saturate="0 1000, 200 100 | offset=(-vh-600-elh)"
-						data-lax-brightness="0 1000, 200 100 | offset=(-vh-600-elh)"
-					>
+				<li className="service-card">
+					<Link to="/servicios/comercializacion" className="service-card__img">
 						<Img
-							fluid={edges[2].node.childImageSharp.fluid}
-							alt="Building"
-							className="gimage lax"
+							fluid={comImg.node.childImageSharp.fluid}
+							alt="Comercialización"
+							className="gimage"
 						/>
-					</div>
-					<div className="service-card__content">
-						<h3 className="service-name">Service Name</h3>
-						<p className="service-description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus adipisci
-							atque molestias non quia animi recusandae voluptatibus, dolor eaque alias quam
-							itaque maiores voluptatem ea.
-						</p>
-					</div>
+						<h3 className="service-title">
+							<span>Comercialización</span>
+							<span className="plus-cirlce">{searchPlus}</span>
+						</h3>
+					</Link>
 				</li>
 			</ul>
 		</section>

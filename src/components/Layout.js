@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { isMobile } from 'react-device-detect'
 
+import Intro from '../components/Intro'
 import Header from './Header'
 
 import 'sanitize.css'
@@ -10,7 +12,7 @@ import '../styles/index.scss'
 
 if (typeof window !== 'undefined') {
 	// eslint-disable-next-line global-require
-	require('smooth-scroll')('a[href*="#"]', {
+	require('smooth-scroll')('a.scroll-link[href*="#"]', {
 		speed: 800,
 		speedAsDuration: true,
 		easing: 'easeInOutCubic',
@@ -29,9 +31,21 @@ const Layout = ({ children }) => {
 		}
 	`)
 
+	const [introState, setIntroState] = useState(false)
+
+	const { title } = data.site.siteMetadata
+
+	useEffect(() => {
+		const intro = JSON.parse(sessionStorage.getItem('intro'))
+		setIntroState(intro)
+		console.log(intro)
+	}, [])
+
 	return (
 		<>
-			<Header siteTitle={data.site.siteMetadata.title} />
+			<Helmet htmlAttributes={{ lang: 'es' }} title={title} />
+			{!introState && <Intro />}
+			<Header siteTitle={title} />
 			<main className="main-content">{children} </main>
 		</>
 	)

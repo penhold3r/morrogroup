@@ -1,71 +1,135 @@
 .services {
 	position: relative;
 	padding: 2rem 1rem 5rem;
+	overflow-x: hidden;
 
 	&__title {
 		font-size: 2.5rem;
-		display: inline-block;
+		text-align: center;
 		letter-spacing: 0.08rem;
 		margin: 0 0 1rem;
 		text-transform: uppercase;
 	}
 
 	&__list {
+		display: flex;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 
+		@include tablet {
+			flex-direction: column;
+		}
+
 		.service-card {
-			background: $grey;
 			display: flex;
 			margin: 0 0 5rem;
-			padding: 0;
+			height: 450px;
+			padding: 1rem;
+			width: 100%;
 
-			@include phone {
-				flex-direction: column;
+			@include tablet {
+				height: 300px;
 			}
 
 			&__img {
 				position: relative;
 				height: 100%;
-				min-height: 300px;
-				width: 50%;
-
-				@include phone {
-					height: 200px;
-					width: 100%;
-				}
+				width: 100%;
+				z-index: 1;
+				overflow: hidden;
 
 				.gimage {
 					position: absolute !important;
 					width: 100%;
-					height: calc(100% + 2rem);
-					left: 1rem;
-					top: 1rem;
+					height: 100%;
+					top: 0;
+					left: 0;
+					transition: all 0.5s;
+				}
+			}
 
-					@include phone {
-						top: 0;
-						left: 0;
-						height: 100%;
+			.service-title {
+				background: rgba(0, 0, 0, 0.5);
+				color: #fff;
+				height: 100%;
+				left: 0%;
+				font-weight: normal;
+				font-size: 1.25rem;
+				text-transform: uppercase;
+				letter-spacing: 0.1rem;
+				margin: 0;
+				text-align: center;
+				margin: auto;
+				padding: 1.5rem 0;
+				position: absolute;
+				top: 0%;
+				width: 100%;
+				z-index: 2;
+				transition: all 0.4s;
+
+				&:after {
+					content: '...';
+					position: absolute;
+					color: #fff;
+					font-size: 2rem;
+					font-weight: bold;
+					bottom: 1rem;
+					width: 100%;
+					left: 0;
+					transition: all 0.5s;
+				}
+
+				.plus-cirlce {
+					background: $grey;
+					border-radius: 50%;
+					bottom: 0;
+					display: flex;
+					height: 50px;
+					left: 0;
+					margin: auto;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 50px;
+					opacity: 0;
+					transition: all 0.5s;
+
+					.search-plus {
+						fill: #fff;
+						margin: auto;
 					}
 				}
 			}
 
-			&__content {
-				padding: 1rem 2rem;
-				width: 50%;
-
-				@include phone {
-					width: 100%;
+			&:hover {
+				.gimage {
+					width: 110%;
+					height: 110%;
+					left: -5%;
+					top: -5%;
+					filter: blur(3px);
 				}
 
-				.service-name {
-					color: $white;
-					margin: 0;
-				}
+				.service-title {
+					background: rgba(0, 0, 0, 0.8);
+					height: 90%;
+					left: 5%;
+					padding: 2rem 0;
+					top: 5%;
+					width: 90%;
 
-				.service-description {
-					color: $white;
+					&:after {
+						opacity: 0;
+						letter-spacing: 2rem;
+						left: 1rem;
+					}
+
+					.plus-cirlce {
+						opacity: 1;
+						height: 70px;
+						width: 70px;
+					}
 				}
 			}
 		}

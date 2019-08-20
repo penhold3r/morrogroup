@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { globalHistory } from '@reach/router'
 import PropTypes from 'prop-types'
 import Link from './Link'
 
@@ -8,12 +9,21 @@ const Header = ({ siteTitle }) => {
 	const [hambState, setHambState] = useState(false)
 	const [menuState, setMenuState] = useState(false)
 
+	const { pathname } = globalHistory.location
+
 	const handleClick = e => {
-		e.preventDefault()
 		setHambState(!hambState)
 		setMenuState(!menuState)
-		window.history.pushState('', null, '/')
+
+		console.log(pathname)
+
+		if (pathname === '/') {
+			e.preventDefault()
+			window.history.pushState('', null, '/')
+		}
 	}
+
+	const linkClass = pathname === '/' ? 'scroll-link link' : 'link'
 
 	return (
 		<header className="site-header">
@@ -36,22 +46,38 @@ const Header = ({ siteTitle }) => {
 			<nav className={menuState ? 'site-nav open' : 'site-nav'}>
 				<ul className="nav-list">
 					<li className="nav-list__item">
-						<Link to="#inicio" className="link" onClick={handleClick}>
+						<Link
+							to={pathname === '/' ? '#inicio' : '/'}
+							className={linkClass}
+							onClick={handleClick}
+						>
 							Inicio
 						</Link>
 					</li>
 					<li className="nav-list__item">
-						<Link to="#quienes-somos" className="link" onClick={handleClick}>
+						<Link
+							to={pathname === '/' ? '#quienes-somos' : '/'}
+							className={linkClass}
+							onClick={handleClick}
+						>
 							Quienes Somos
 						</Link>
 					</li>
 					<li className="nav-list__item">
-						<Link to="#servicios" className="link" onClick={handleClick}>
+						<Link
+							to={pathname === '/' ? '#servicios' : '/'}
+							className={linkClass}
+							onClick={handleClick}
+						>
 							Servicios
 						</Link>
 					</li>
 					<li className="nav-list__item">
-						<Link to="#contacto" className="link" onClick={handleClick}>
+						<Link
+							to={pathname === '/' ? '#contacto' : '/'}
+							className={linkClass}
+							onClick={handleClick}
+						>
 							Contacto
 						</Link>
 					</li>
