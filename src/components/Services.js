@@ -54,7 +54,7 @@ const Services = ({ isMobile }) => {
 			>
 				Servicios
 			</h2>
-			<ul className="services__list lax" data-lax-opacity="0 0, 50 1 | offset=(-vh-elh)">
+			<ul className="services__list lax" data-lax-opacity="0 0, 30 1 | offset=(-vh-elh)">
 				<li className="service-card">
 					<Link to="/servicios/arquitectura" className="service-card__img">
 						<Img

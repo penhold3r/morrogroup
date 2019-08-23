@@ -1,9 +1,168 @@
 .contact {
-	position: relative;
-	padding: 1rem 1rem 3rem;
+	background-blend-mode: multiply;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	height: 100vh;
 	min-height: 500px;
+	position: relative;
 
-	&__title {
-		font-size: 2.5rem;
+	&__content {
+		display: flex;
+		margin: auto;
+		max-width: 1000px;
+		width: 100%;
+
+		@include tablet {
+			flex-direction: column;
+		}
+
+		.contact-data {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+
+			@include tablet {
+				width: 100%;
+			}
+
+			.contact-title {
+				font-weight: $light;
+				letter-spacing: 0.1rem;
+				margin: 0 0 1rem;
+				text-transform: uppercase;
+			}
+
+			.phone,
+			.mail {
+				&:before {
+					margin-right: 1rem;
+					position: relative;
+					top: 3px;
+				}
+			}
+
+			.phone {
+				font-size: 1.25rem;
+				font-weight: $light;
+				margin: 0 0 1rem;
+				text-decoration: none;
+				transition: all 0.3s;
+				width: fit-content;
+
+				&:hover {
+					background: rgba($white, 0.2);
+					opacity: 0.85;
+					padding: 0 1rem;
+				}
+			}
+
+			.mail {
+				border-bottom: 1px solid $white;
+				font-size: 1.5rem;
+				text-decoration: none;
+				transition: all 0.3s;
+				width: fit-content;
+
+				&:hover {
+					border-bottom: 1px solid transparent;
+					opacity: 0.7;
+				}
+			}
+
+			.social {
+				display: flex;
+				list-style: none;
+				margin: 2rem 0;
+				padding: 0;
+
+				&__icon {
+					margin: 0 1rem 1rem 0;
+
+					a {
+						background: rgba($white, 0.4);
+						border-radius: 50%;
+						display: flex;
+						height: 40px;
+						text-decoration: none;
+						transition: all 0.3s;
+						width: 40px;
+
+						.icon {
+							margin: auto;
+							color: $white;
+
+							&:before {
+								position: relative;
+								top: 1px;
+							}
+						}
+
+						&:hover {
+							background: $black;
+						}
+					}
+				}
+			}
+		}
+
+		.contact-form {
+			width: 50%;
+
+			@include tablet {
+				width: 100%;
+			}
+
+			.form-block {
+				.form-input {
+					background: rgba($white, 0.4);
+					border: none;
+					color: $black;
+					font-family: $main-font;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					transition: all 0.4s;
+					width: 100%;
+
+					@include placeholder {
+						color: $white;
+						transition: all 0.4s;
+					}
+
+					&.textarea {
+						resize: vertical;
+						height: 100px;
+					}
+
+					&:focus {
+						background: $white;
+
+						@include placeholder {
+							opacity: 0;
+							padding: 0 2rem;
+						}
+					}
+				}
+			}
+
+			.form-submit {
+				background: rgba($white, 0.4);
+				border: 1px solid $white;
+				color: $white;
+				cursor: pointer;
+				font-family: $main-font;
+				font-size: 1.25rem;
+				letter-spacing: 0.1rem;
+				padding: 1rem;
+				text-align: center;
+				text-transform: uppercase;
+				transition: all 0.3s;
+				width: 100%;
+
+				&:hover {
+					background: $black;
+				}
+			}
+		}
 	}
 }

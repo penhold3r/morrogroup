@@ -22,11 +22,16 @@ const ConstPage = () => {
 	`)
 
 	return (
-		<Layout>
+		<Layout pageTitle="Construcción">
 			<section className="service const">
 				<header className="service__header">
 					<Img className="service-hero" fluid={file.childImageSharp.fluid} alt={file.name} />
-					<h2 className="service-title">Construcción</h2>
+					<h2 className="service-title">
+						<div className="go-back" onClick={() => window.history.back()}>
+							<i className="icon icon-up-arrow" />
+						</div>
+						<span>Construcción</span>
+					</h2>
 				</header>
 				<div className="service__content">
 					<p>

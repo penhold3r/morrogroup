@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { isMobile } from 'react-device-detect'
@@ -20,7 +20,7 @@ if (typeof window !== 'undefined') {
 	})
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageTitle }) => {
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -43,7 +43,16 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
-			<Helmet htmlAttributes={{ lang: 'es' }} title={title} />
+			<Helmet
+				htmlAttributes={{ lang: 'es' }}
+				title={pageTitle ? pageTitle + ' | ' + title : title}
+				link={[
+					{
+						href: 'https://file.myfontastic.com/SnS98Lv4hKuJ5pWJ47AKjb/icons.css',
+						rel: 'stylesheet'
+					}
+				]}
+			/>
 			{!introState && <Intro />}
 			<Header siteTitle={title} />
 			<main className="main-content">{children} </main>

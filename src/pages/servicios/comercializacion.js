@@ -22,11 +22,16 @@ const ComPage = () => {
 	`)
 
 	return (
-		<Layout>
+		<Layout pageTitle="Comercialización">
 			<section className="service com">
 				<header className="service__header">
 					<Img className="service-hero" fluid={file.childImageSharp.fluid} alt={file.name} />
-					<h2 className="service-title">Comercialización</h2>
+					<h2 className="service-title">
+						<div className="go-back" onClick={() => window.history.back()}>
+							<i className="icon icon-up-arrow" />
+						</div>
+						<span>Comercialización</span>
+					</h2>
 				</header>
 				<div className="service__content">
 					<p>
