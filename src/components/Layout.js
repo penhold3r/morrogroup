@@ -37,14 +37,22 @@ const Layout = ({ children, pageTitle }) => {
 
 	const { title } = data.site.siteMetadata
 
+	const domReady = callback => {
+		document.readyState === 'interactive' || document.readyState === 'complete'
+			? callback()
+			: document.addEventListener('DOMContentLoaded', callback)
+	}
+
 	useEffect(() => {
 		const intro = JSON.parse(sessionStorage.getItem('intro'))
 
 		setIntroState(intro)
-		AOS.init({
-			easing: 'ease-in-out'
+		domReady(() => {
+			AOS.init({
+				easing: 'ease-in-out'
+			})
+			console.log(AOS, 'ready')
 		})
-		console.log(AOS)
 	}, [])
 
 	return (
