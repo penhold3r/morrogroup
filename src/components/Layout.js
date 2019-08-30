@@ -9,7 +9,7 @@ import Intro from '../components/Intro'
 import Header from './Header'
 
 import 'sanitize.css'
-import 'aos/dist/aos.css' // You can also use <link> for styles
+//import 'aos/dist/aos.css' // You can also use <link> for styles
 import '../styles/index.scss'
 
 if (typeof window !== 'undefined') {
