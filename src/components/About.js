@@ -20,31 +20,30 @@ const About = ({ isMobile }) => {
 			<div className="about-inner">
 				<div
 					className={isMobile ? 'about-inner__img' : 'about-inner__img lax'}
-					data-lax-translate-x="0 -300, 400 0 | offset=-100"
-					data-lax-opacity="0 0, 400 1"
+					data-aos="fade-right"
 				>
 					<Img fluid={data.file.childImageSharp.fluid} alt="Building" className="gimage" />
 				</div>
-				<div
-					className={isMobile ? 'about-inner__content' : 'about-inner__content lax'}
-					data-lax-translate-y="0 200, 200 0 | offset=-50"
-					data-lax-opacity="0 0, 400 1"
-				>
-					<h2 className="about-title">Quienes Somos</h2>
-					<div className="about-text">
-						<p className="lead">
-							Somos una empresa familiar con más de 40 años de trayectoria, específicamente,
-							la tercera generación puesta en acción enfocada en la construcción,
-							gerenciamiento y negocios inmobiliarios. Creemos en el trabajo en equipo como
-							herramienta para superar obstáculos y general alianzas positivas.
+				<div className={isMobile ? 'about-inner__content' : 'about-inner__content lax'}>
+					<h2 className="about-title" data-aos="fade-left">
+						¿Cómo nace?
+					</h2>
+					<div className="about-text" data-aos="fade">
+						<p>
+							Morro Grupo Inversor nace en el seno familiar de sus fundadores tomando como
+							pilar la confianza y buscando cumplir un sueño común.
 						</p>
 
 						<p>
-							Trabajamos día a día en una gestión integral que cumpla con los plazos
-							pactados, la optimización de costos, la calidad de nuestro producto y, como
-							prioridad, generar la confianza de nuestros clientes. Nuestro trabajo es
-							innovador, moderno, de calidad y enfocado en la excelencia. A eso lo llamamos:
-							garantía Basso.
+							Somos una empresa multifacética formada por jóvenes emprendedores, que une la
+							arquitectura y el servicio inmobiliario para ofrecer soluciones a la medida de
+							cada uno de nuestros clientes e inversores.
+						</p>
+
+						<p>
+							Valoramos la confianza y el trabajo en equipo con nuestros clientes e
+							inversores, buscando potenciar la sinergia que se genera en cada uno de los
+							proyectos por el continuo aporte y esfuerzo en conjunto.
 						</p>
 					</div>
 				</div>

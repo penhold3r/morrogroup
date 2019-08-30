@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { isMobile } from 'react-device-detect'
+import AOS from 'aos'
 
 import Intro from '../components/Intro'
 import Header from './Header'
 
 import 'sanitize.css'
+import 'aos/dist/aos.css' // You can also use <link> for styles
 import '../styles/index.scss'
 
 if (typeof window !== 'undefined') {
@@ -37,8 +39,11 @@ const Layout = ({ children, pageTitle }) => {
 
 	useEffect(() => {
 		const intro = JSON.parse(sessionStorage.getItem('intro'))
+
 		setIntroState(intro)
-		console.log(intro)
+		AOS.init({
+			easing: 'ease-in-out'
+		})
 	}, [])
 
 	return (

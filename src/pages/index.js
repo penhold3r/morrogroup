@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { isMobile } from 'react-device-detect'
 
 import Layout from '../components/Layout'
@@ -7,23 +7,7 @@ import About from '../components/About'
 import Services from '../components/Services'
 import Contact from '../components/Contact'
 
-import lax from 'lax.js'
-
 const IndexPage = () => {
-	useEffect(() => {
-		lax.setup() // init animations
-
-		document.addEventListener(
-			'scroll',
-			x => {
-				lax.update(window.scrollY)
-			},
-			false
-		)
-
-		lax.update(window.scrollY)
-	})
-
 	return (
 		<Layout>
 			<Hero isMobile={isMobile} />

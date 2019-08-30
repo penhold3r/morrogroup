@@ -47,15 +47,11 @@ const Services = ({ isMobile }) => {
 
 	return (
 		<section id="servicios" className="services">
-			<h2
-				className="services__title lax"
-				data-lax-opacity="0 0, 200 1 | offset=(-vh-200)"
-				data-lax-translate-x="0 50, 200 0 | offset=(-vh-200)"
-			>
+			<h2 className="services__title lax" data-aos="fade">
 				Servicios
 			</h2>
-			<ul className="services__list lax" data-lax-opacity="0 0, 30 1 | offset=(-vh-elh)">
-				<li className="service-card">
+			<ul className="services__list lax">
+				<li className="service-card" data-aos="fade-up">
 					<Link to="/servicios/arquitectura" className="service-card__img">
 						<Img
 							fluid={arqImg.node.childImageSharp.fluid}
@@ -68,7 +64,7 @@ const Services = ({ isMobile }) => {
 						</h3>
 					</Link>
 				</li>
-				<li className="service-card">
+				<li className="service-card" data-aos="fade-up">
 					<Link to="/servicios/construccion" className="service-card__img">
 						<Img
 							fluid={constImg.node.childImageSharp.fluid}
@@ -81,7 +77,7 @@ const Services = ({ isMobile }) => {
 						</h3>
 					</Link>
 				</li>
-				<li className="service-card">
+				<li className="service-card" data-aos="fade-up">
 					<Link to="/servicios/comercializacion" className="service-card__img">
 						<Img
 							fluid={comImg.node.childImageSharp.fluid}

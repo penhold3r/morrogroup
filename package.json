@@ -15,6 +15,7 @@
 		"serve": "gatsby serve"
 	},
 	"dependencies": {
+		"aos": "^3.0.0-beta.6",
 		"gatsby": "^2.14.1",
 		"gatsby-image": "^2.2.14",
 		"gatsby-plugin-manifest": "^2.2.9",
@@ -26,7 +27,6 @@
 		"gatsby-plugin-web-font-loader": "^1.0.4",
 		"gatsby-source-filesystem": "^2.1.18",
 		"gatsby-transformer-sharp": "^2.2.12",
-		"lax.js": "^1.2.3",
 		"node-sass": "^4.12.0",
 		"node-sass-glob-importer": "^5.3.2",
 		"prop-types": "^15.7.2",
@@ -34,6 +34,7 @@
 		"react-device-detect": "^1.7.5",
 		"react-dom": "^16.9.0",
 		"react-helmet": "^5.2.1",
+		"react-parallax": "^2.2.0",
 		"react-slick": "^0.24.0",
 		"sanitize.css": "^11.0.0",
 		"smooth-scroll": "^16.1.0"
