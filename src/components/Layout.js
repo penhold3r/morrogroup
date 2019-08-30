@@ -47,10 +47,12 @@ const Layout = ({ children, pageTitle }) => {
 		const intro = JSON.parse(sessionStorage.getItem('intro'))
 
 		setIntroState(intro)
+		AOS.init({
+			easing: 'ease-in-out'
+		})
+
 		domReady(() => {
-			AOS.init({
-				easing: 'ease-in-out'
-			})
+			AOS.refresh()
 			console.log(AOS, 'ready')
 		})
 	}, [])
