@@ -44,6 +44,7 @@ const Layout = ({ children, pageTitle }) => {
 		AOS.init({
 			easing: 'ease-in-out'
 		})
+		console.log(AOS)
 	}, [])
 
 	return (
